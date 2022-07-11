@@ -7,7 +7,7 @@ specifiers:
   '@mui/material': 5.8.7
   '@testing-library/jest-dom': 5.16.4
   '@testing-library/react': 13.3.0
-  '@testing-library/user-event': 13.5.0
+  '@testing-library/user-event': 14.2.1
   '@types/jest': 27.5.2
   '@types/node': 16.11.43
   '@types/react': 18.0.15
@@ -25,7 +25,7 @@ dependencies:
   '@mui/material': 5.8.7_0afd08c3dcf6dd5cb20de0996afeb81c
   '@testing-library/jest-dom': 5.16.4
   '@testing-library/react': 13.3.0_react-dom@18.2.0+react@18.2.0
-  '@testing-library/user-event': 13.5.0
+  '@testing-library/user-event': 14.2.1
   '@types/jest': 27.5.2
   '@types/node': 16.11.43
   '@types/react': 18.0.15
@@ -2481,13 +2481,11 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@testing-library/user-event/13.5.0:
-    resolution: {integrity: sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==}
-    engines: {node: '>=10', npm: '>=6'}
+  /@testing-library/user-event/14.2.1:
+    resolution: {integrity: sha512-HOr1QiODrq+0j9lKU5i10y9TbhxMBMRMGimNx10asdmau9cb8Xb1Vyg0GvTwyIL2ziQyh2kAloOtAQFBQVuecA==}
+    engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
-    dependencies:
-      '@babel/runtime': 7.18.6
     dev: false
 
   /@tootallnate/once/1.1.2:
