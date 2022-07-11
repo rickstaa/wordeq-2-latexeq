@@ -18,7 +18,7 @@ const regexes = [
   /\\mathb(it|f){([^{}]+)}([\^_])/g, // Match word-specific tags that are followed by math operators.
   /([\^_])\\mathb(it|f){([^{}]+)}/g, // Match word-specific tags with preceded by math operators.
 ];
-const replaceStrs = [" $2 ", "$2$3", "$1$3"];
+const replaceStrs = [" $2 ", " $2$3", "$1$3 "];
 
 /* Helper functions */
 
