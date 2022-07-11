@@ -3129,6 +3129,7 @@ packages:
     dev: false
 
   /@testing-library/user-event/14.2.1:
+<<<<<<< HEAD
     resolution:
       {
         integrity: sha512-HOr1QiODrq+0j9lKU5i10y9TbhxMBMRMGimNx10asdmau9cb8Xb1Vyg0GvTwyIL2ziQyh2kAloOtAQFBQVuecA==,
@@ -3136,6 +3137,12 @@ packages:
     engines: { node: ">=12", npm: ">=6" }
     peerDependencies:
       "@testing-library/dom": ">=7.21.4"
+=======
+    resolution: {integrity: sha512-HOr1QiODrq+0j9lKU5i10y9TbhxMBMRMGimNx10asdmau9cb8Xb1Vyg0GvTwyIL2ziQyh2kAloOtAQFBQVuecA==}
+    engines: {node: '>=12', npm: '>=6'}
+    peerDependencies:
+      '@testing-library/dom': '>=7.21.4'
+>>>>>>> eeb7ef92535ca73328324f5b299fcca54630075c
     dev: false
 
   /@tootallnate/once/1.1.2:
