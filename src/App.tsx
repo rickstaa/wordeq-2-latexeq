@@ -144,7 +144,7 @@ function App() {
                 onClick={copyClipboard}
                 startIcon={<ContentCopyIcon />}
               >
-                Copy to Clipboard
+                Copy Latex to Clipboard
               </Button>
             </Grid>
           </Grid>
