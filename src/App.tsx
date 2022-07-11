@@ -56,7 +56,7 @@ function App() {
               <Tooltip title="Open on Github" enterDelay={300}>
                 <IconButton
                   component="a"
-                  href="https://github.com/rickstaa/wordeq-2-latexeq/pulls"
+                  href="https://github.com/rickstaa/wordeq-2-latexeq"
                 >
                   <GitHubIcon fontSize="large" sx={{ color: "white" }} />
                 </IconButton>
