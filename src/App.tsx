@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 /* Regex used for replacing equations. */
-const regex = /\\mathb(it|f){([^{}]+)}/g;
+const regex = / *\\mathb(it|f){([^{}]+)} */g;
 
 /* The app. */
 function App() {
