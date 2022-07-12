@@ -1,4 +1,6 @@
-/* Small Javascript Regex app that converts Word equations to Latex equations. */
+/**
+ * @file Small Javascript Regex app that converts Word equations to Latex equations.
+ */
 import './App.css';
 
 import React, { useState } from 'react';
