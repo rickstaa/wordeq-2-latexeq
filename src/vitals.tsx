@@ -11,7 +11,9 @@ function getConnectionSpeed() {
   return "connection" in navigator &&
     navigator.connection &&
     "effectiveType" in navigator.connection
-    ? navigator.connection.type
+    ? navigator.connection.effectiveType !== undefined
+      ? navigator.connection.effectiveType
+      : ""
     : "";
 }
 /**
@@ -23,6 +25,7 @@ function getConnectionSpeed() {
 export function sendToVercelAnalytics(metric: Metric) {
   const analyticsId = process.env.REACT_APP_VERCEL_ANALYTICS_ID;
   if (!analyticsId) {
+    getConnectionSpeed();
     return;
   }
 
