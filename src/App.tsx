@@ -119,17 +119,18 @@ function App() {
             container
             justifyContent="center"
             alignItems="center"
+            direction={{ xs: "column", md: "row" }}
             mt={5}
             columnSpacing={5}
           >
-            <Grid item>
+            <Grid item md={4} xs={1}>
               <TextField
                 label="WordEq"
                 variant="outlined"
                 value={wordEq}
                 onChange={handleWordEqChange}
+                fullWidth
                 sx={{
-                  width: "250px",
                   "& .MuiInputBase-root": {
                     height: "150px",
                   },
@@ -139,14 +140,14 @@ function App() {
             <Grid item>
               <ArrowForwardIcon fontSize="large" />
             </Grid>
-            <Grid item>
+            <Grid item md={4} xs={1}>
               <TextField
                 label="LatexEq"
                 variant="outlined"
                 value={latexEq}
                 disabled
+                fullWidth
                 sx={{
-                  width: "250px",
                   "& .MuiInputBase-root": {
                     height: "150px",
                   },
