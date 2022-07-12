@@ -20,7 +20,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 if (process.env.NODE_ENV === "production") {
-  console.log(process.env.NODE_ENV);
-  console.log(process.env.REACT_APP_VERCEL_ANALYTICS_ID);
   reportWebVitals(sendToVercelAnalytics);
 }
