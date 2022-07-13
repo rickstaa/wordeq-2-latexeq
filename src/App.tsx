@@ -3,15 +3,15 @@
  */
 import './App.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {
-    AppBar, Button, Container, CssBaseline, Grid, IconButton, TextField, Toolbar, Tooltip,
-    Typography
+    Alert as MuiAlert, AlertProps, AppBar, Button, Container, CssBaseline, Grid, IconButton,
+    Snackbar, TextField, Toolbar, Tooltip, Typography
 } from '@mui/material';
 
 /* Regex used for replacing equations. */
@@ -21,6 +21,17 @@ const regexes = [
   /([\^_])\\mathb(it|f){([^{}]+)}/g, // Match word-specific tags with preceded by math operators.
 ];
 const replaceStrs = [" $2 ", " $2$3", "$1$3 "];
+
+/* Types */
+export interface SnackbarMessage {
+  message: string;
+  key: number;
+}
+export interface State {
+  open: boolean;
+  snackPack: readonly SnackbarMessage[];
+  messageInfo?: SnackbarMessage;
+}
 
 /* Helper functions */
 
@@ -44,10 +55,60 @@ const multiRegex = (
   return result;
 };
 
+/* Styled components */
+
+/** Create styled alart box.
+ * @param props Forward props.
+ * @ref ref Forward reference.
+ * @returns Alert box.
+ */
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 /* The app */
 function App() {
   const [wordEq, setWordEq] = useState("");
   const [latexEq, setLatexEq] = useState("");
+  const [snackPack, setSnackPack] = React.useState<readonly SnackbarMessage[]>(
+    []
+  );
+  const [open, setOpen] = React.useState(false);
+  const [messageInfo, setMessageInfo] = React.useState<
+    SnackbarMessage | undefined
+  >(undefined);
+
+  /* Initialize snackbar functionality. */
+  useEffect(() => {
+    if (snackPack.length && !messageInfo) {
+      // Set a new snack when we don't have an active one.
+      setMessageInfo({ ...snackPack[0] });
+      setSnackPack((prev) => prev.slice(1));
+      setOpen(true);
+    } else if (snackPack.length && messageInfo && open) {
+      // Close an active snack when a new one is added.
+      setOpen(false);
+    }
+  }, [snackPack, messageInfo, open]);
+
+  /* Handles the close of the snackbar. */
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  /* Handles the exit of the snackbar. */
+  const handleExited = () => {
+    setMessageInfo(undefined);
+  };
 
   /** Translates WordEquation to Latex Equation */
   const translateWordEq = () => {
@@ -57,6 +118,11 @@ function App() {
   /** Copies Latex Equation to Clipboard **/
   const copyClipboard = () => {
     navigator.clipboard.writeText(latexEq);
+    // Display snackbar
+    setSnackPack((prev) => [
+      ...prev,
+      { message: "Copied to clipboard", key: new Date().getTime() },
+    ]);
   };
 
   /** Stores Word Equation in State **/
@@ -180,6 +246,19 @@ function App() {
           </Grid>
         </Grid>
       </Container>
+      {/* Snackbar */}
+      <Snackbar
+        key={messageInfo ? messageInfo.key : undefined}
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        TransitionProps={{ onExited: handleExited }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          {messageInfo ? messageInfo.message : undefined}
+        </Alert>
+      </Snackbar>
     </>
   );
 }
