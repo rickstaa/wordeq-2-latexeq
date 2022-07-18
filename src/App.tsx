@@ -163,7 +163,7 @@ function App() {
       <Toolbar />
       {/* Content */}
       <Container>
-        <Grid container direction="column">
+        <Grid container direction="column" sx={{mb:3}}>
           {/* Description */}
           <Grid item mt={2}>
             <Typography>
