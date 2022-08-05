@@ -9,7 +9,7 @@ specifiers:
   '@mui/icons-material': ^5.8.4
   '@mui/material': 5.9.3
   '@testing-library/dom': 8.16.1
-  '@testing-library/jest-dom': ^5.16.4
+  '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': ^13.3.0
   '@testing-library/user-event': ^14.2.1
   '@types/jest': 28.1.6
@@ -32,7 +32,7 @@ dependencies:
   '@mui/icons-material': 5.8.4_x6czzi3axj3g3crkmdh4a3wnjy
   '@mui/material': 5.9.3_x23mn2l7fw5e56g6ttw67k5uxm
   '@testing-library/dom': 8.16.1
-  '@testing-library/jest-dom': 5.16.4
+  '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 14.2.3_znfriv3ismgf3ybh2woqwlpfea
   '@types/jest': 28.1.6
@@ -47,6 +47,10 @@ dependencies:
   web-vitals: 2.1.4
 
 packages:
+
+  /@adobe/css-tools/4.0.1:
+    resolution: {integrity: sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==}
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -2467,15 +2471,15 @@ packages:
       pretty-format: 27.5.1
     dev: false
 
-  /@testing-library/jest-dom/5.16.4:
-    resolution: {integrity: sha512-Gy+IoFutbMQcky0k+bqqumXZ1cTGswLsFqmNLzNdSKkU9KGV2u9oXhukCbbJ9/LRPKiqwxEE8VpV/+YZlfkPUA==}
+  /@testing-library/jest-dom/5.16.5:
+    resolution: {integrity: sha512-N5ixQ2qKpi5OLYfwQmUb/5mSV9LneAcaUfp32pn4yCnpb8r/Yz0pXFPck21dIicKmi+ta5WRAknkZCfA8refMA==}
     engines: {node: '>=8', npm: '>=6', yarn: '>=1'}
     dependencies:
+      '@adobe/css-tools': 4.0.1
       '@babel/runtime': 7.18.6
       '@types/testing-library__jest-dom': 5.14.5
       aria-query: 5.0.0
       chalk: 3.0.0
-      css: 3.0.0
       css.escape: 1.5.1
       dom-accessibility-api: 0.5.14
       lodash: 4.17.21
@@ -3323,12 +3327,6 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: false
 
-  /atob/2.1.2:
-    resolution: {integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==}
-    engines: {node: '>= 4.5.0'}
-    hasBin: true
-    dev: false
-
   /autoprefixer/10.4.7_postcss@8.4.14:
     resolution: {integrity: sha512-ypHju4Y2Oav95SipEcCcI5J7CGPuvz8oat7sUtYj3ClK44bldfvtvcxK6IEK++7rqB7YchDGzweZIBG+SD0ZAA==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4131,14 +4129,6 @@ packages:
     resolution: {integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==}
     dev: false
 
-  /css/3.0.0:
-    resolution: {integrity: sha512-DG9pFfwOrzc+hawpmqX/dHYHJG+Bsdb0klhyi1sDneOgGOXy9wQIC8hzyVp1e4NRYDBdxcylvywPkkXCHAzTyQ==}
-    dependencies:
-      inherits: 2.0.4
-      source-map: 0.6.1
-      source-map-resolve: 0.6.0
-    dev: false
-
   /cssdb/6.6.3:
     resolution: {integrity: sha512-7GDvDSmE+20+WcSMhP17Q1EVWUrLlbxxpMDqG731n8P99JhnQZHR9YvtjPvEHfjFUjvQJvdpKCjlKOX+xe4UVA==}
     dev: false
@@ -4283,11 +4273,6 @@ packages:
 
   /decimal.js/10.3.1:
     resolution: {integrity: sha512-V0pfhfr8suzyPGOx3nmq4aHqabehUZn6Ch9kyFpV79TGDTWFmHqUqXdabR7QHqxzrYolF4+tVmJhUG4OURg5dQ==}
-    dev: false
-
-  /decode-uri-component/0.2.0:
-    resolution: {integrity: sha512-hjf+xovcEn31w/EUYdTXQh/8smFL/dzYjohQGEIgjyNavaJfBY2p5F527Bo1VPATxv0VYTUC2bOcXvqFwk78Og==}
-    engines: {node: '>=0.10'}
     dev: false
 
   /dedent/0.7.0:
@@ -9044,14 +9029,6 @@ packages:
       iconv-lite: 0.6.3
       source-map-js: 1.0.2
       webpack: 5.73.0
-    dev: false
-
-  /source-map-resolve/0.6.0:
-    resolution: {integrity: sha512-KXBr9d/fO/bWo97NXsPIAW1bFSBOuCnjbNTBMO7N59hsv5i9yzRDfcYwwt0l04+VqnKC+EwzvJZIP/qkuMgR/w==}
-    deprecated: See https://github.com/lydell/source-map-resolve#deprecated
-    dependencies:
-      atob: 2.1.2
-      decode-uri-component: 0.2.0
     dev: false
 
   /source-map-support/0.5.21:
