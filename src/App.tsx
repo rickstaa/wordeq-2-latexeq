@@ -1,18 +1,29 @@
 /**
  * @file Small Javascript Regex app that converts Word equations to Latex equations.
  */
-import './App.css';
+import "./App.css";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
-    Alert as MuiAlert, AlertProps, AppBar, Button, Container, CssBaseline, Grid, IconButton,
-    Snackbar, TextField, Toolbar, Tooltip, Typography
-} from '@mui/material';
+  Alert as MuiAlert,
+  AlertProps,
+  AppBar,
+  Button,
+  Container,
+  CssBaseline,
+  Grid,
+  IconButton,
+  Snackbar,
+  TextField,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 
 /* Regex used for replacing equations. */
 const regexes = [
@@ -126,9 +137,7 @@ function App() {
   };
 
   /** Stores Word Equation in State **/
-  const handleWordEqChange = (
-    event: React.KeyboardEvent<HTMLTextAreaElement>
-  ) => {
+  const handleWordEqChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWordEq(event.target.value);
   };
 
@@ -163,7 +172,7 @@ function App() {
       <Toolbar />
       {/* Content */}
       <Container>
-        <Grid container direction="column" sx={{mb:3}}>
+        <Grid container direction="column" sx={{ mb: 3 }}>
           {/* Description */}
           <Grid item mt={2}>
             <Typography>
