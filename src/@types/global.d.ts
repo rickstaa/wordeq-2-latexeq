@@ -3,12 +3,13 @@
  */
 
 /**
- * Extend NavigatorNetworkInformation types.
+ * Extend Navigator with extra types.
  *
  * @description Define NetworkInformation attribute types. Needed since they are not yet supported (see
  * https://stackoverflow.com/a/69676260/8135687). Taken from
  * https://github.com/lacolaco/network-information-types/blob/master/index.d.ts
  */
+declare interface Navigator extends NavigatorNetworkInformation {}
 
 // http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
 declare interface NavigatorNetworkInformation {
