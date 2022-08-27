@@ -24,14 +24,15 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { multiRegex } from "./helpers";
 
 /* Regex used for replacing equations. */
-const regexes = [
+export const REGEXES = [
   / *(?<![_^])\\mathb(it|f){([^{}]+)}(?![_^]) */g, // Match word-specific tags that are not preceded of followed by math operators.
   /\\mathb(it|f){([^{}]+)}([\^_])/g, // Match word-specific tags that are followed by math operators.
   /([\^_])\\mathb(it|f){([^{}]+)}/g, // Match word-specific tags with preceded by math operators.
 ];
-const replaceStrs = [" $2 ", " $2$3", "$1$3 "];
+export const REPLACESTRINGS = [" $2 ", " $2$3", "$1$3 "];
 
 /* Types */
 export interface SnackbarMessage {
@@ -43,28 +44,6 @@ export interface State {
   snackPack: readonly SnackbarMessage[];
   messageInfo?: SnackbarMessage;
 }
-
-/* Helper functions */
-
-/** Applies a list of regex expressions and a replace string to a input string.
- *
- * @param inputString Input string to apply regexes to.
- * @param regexes List of regex expressions to apply.
- * @param replaceStrs Replace strings to use.
- * @returns String with regexes applied.
- */
-const multiRegex = (
-  inputString: string | undefined,
-  regexes: RegExp[],
-  replaceStrs: string[]
-) => {
-  inputString = inputString === undefined ? "" : inputString;
-  let result = inputString;
-  for (const [idx, regex] of regexes.entries()) {
-    result = result.replace(regex, replaceStrs[idx]) ?? inputString;
-  }
-  return result;
-};
 
 /* Styled components */
 
@@ -123,7 +102,7 @@ function App() {
 
   /** Translates WordEquation to Latex Equation */
   const translateWordEq = () => {
-    setLatexEq(multiRegex(wordEq, regexes, replaceStrs));
+    setLatexEq(multiRegex(wordEq, REGEXES, REPLACESTRINGS));
   };
 
   /** Copies Latex Equation to Clipboard **/
